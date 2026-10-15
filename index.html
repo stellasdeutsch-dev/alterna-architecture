@@ -262,8 +262,8 @@ pre .t{color:#f3c97a}
 @media (max-width:760px){pre{font-size:12.5px;padding:16px;border-radius:14px}}
 
 .checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-.checks li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:var(--ink2)}
-.checks li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d9e57' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+.checks li{position:relative;padding-left:30px;font-size:15.5px;color:var(--ink2)}
+.checks li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d9e57' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
 .checks.dots li::before{background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='5' fill='%231f5ae0'/%3E%3C/svg%3E") center/12px no-repeat}
 
 /* ---------- verdict ---------- */
@@ -498,6 +498,25 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
 .watch h3{font-size:16px;margin-bottom:6px}
 .watch p{font-size:14.5px}
 
+
+/* ---------- devices ---------- */
+.bp-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:1180px){.bp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.bp-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+@media (max-width:420px){.bp-grid{grid-template-columns:minmax(0,1fr)}}
+.bp{padding:16px}
+.bp svg{display:block;width:100%;height:auto;margin-bottom:12px}
+.bp .w{display:inline-block;font:600 12.5px/1.4 ui-monospace,'SF Mono',Menlo,Consolas,monospace;color:var(--blue-ink);background:var(--blue-soft);border-radius:7px;padding:2px 8px}
+.bp h3{font-size:16px;margin:8px 0 2px}
+.bp .dev{font-size:13px;color:var(--muted);margin-bottom:8px}
+.bp p{font-size:14px}
+.wf-bg{fill:#f4f6fa}.wf-frame{fill:#fff;stroke:#cfd5df;stroke-width:1.5}.wf-side{fill:#dfe6f5}.wf-blk{fill:#eef1f6}
+.wf-acc{fill:#1f5ae0}.wf-acc2{fill:#9db7f5}.wf-rail{fill:#ffe7b0}.wf-dot{fill:#b9c4d8}.wf-margin{fill:#f1f3f7}
+.plat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.plat .card{padding:18px}
+.plat h3{font-size:16px;margin-bottom:6px}
+.plat p{font-size:14.5px}
+@media (max-width:420px){.role{padding:16px}.role .tg-h{flex-direction:column;align-items:flex-start;gap:8px}.role .tg-h h3{font-size:16px}}
 </style>
 </head>
 <body class="no-js">
@@ -543,6 +562,7 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
   <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
   <symbol id="i-bot" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="3"/><path d="M12 8V4M9 4h6"/><path d="M8 14h.01M16 14h.01"/><path d="M9 17h6"/></symbol>
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-devices" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6M9 14v4"/><rect x="17" y="8" width="5" height="12" rx="1.2"/></symbol>
 </svg>
 
 <div class="app">
@@ -558,6 +578,7 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
       <a href="#stack"><svg class="ic"><use href="#i-layers"/></svg>Стек технологий</a>
       <a href="#architecture"><svg class="ic"><use href="#i-network"/></svg>Схема</a>
       <a href="#frontend"><svg class="ic"><use href="#i-monitor"/></svg>Фронтенд</a>
+      <a href="#devices"><svg class="ic"><use href="#i-devices"/></svg>Устройства</a>
       <a href="#guides"><svg class="ic"><use href="#i-book"/></svg>Гайды</a>
       <a href="#games"><svg class="ic"><use href="#i-gamepad"/></svg>Игры</a>
       <a href="#backend"><svg class="ic"><use href="#i-server"/></svg>Бэкенд и роли</a>
@@ -574,8 +595,8 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
       <a href="#decisions"><svg class="ic"><use href="#i-alert"/></svg>Решить до старта</a>
     </nav>
     <div class="side-foot">
-      <span class="ava">v4</span>
-      <div><b>Документ архитектуры</b><span>9 октября 2026</span></div>
+      <span class="ava">v5</span>
+      <div><b>Документ архитектуры</b><span>15 октября 2026</span></div>
     </div>
   </aside>
 
@@ -583,7 +604,7 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
     <div class="mtop">
       <a class="brand" href="#overview"><span class="logo"><svg viewBox="0 0 24 24"><use href="#i-logo"/></svg></span>Alterna · архитектура</a>
       <nav class="mnav" data-nav aria-label="Разделы">
-        <a href="#overview">Обзор</a><a href="#route">Маршрут</a><a href="#stack">Стек</a><a href="#architecture">Схема</a><a href="#frontend">Фронтенд</a><a href="#guides">Гайды</a><a href="#games">Игры</a><a href="#backend">Бэкенд</a><a href="#hosting">Хостинг</a><a href="#tracking">Трекинг</a><a href="#data">Данные</a><a href="#load">Нагрузка</a><a href="#costs">Стоимость</a><a href="#roadmap">10 дней</a><a href="#claude">Claude Code</a><a href="#decisions">Решить</a>
+        <a href="#overview">Обзор</a><a href="#route">Маршрут</a><a href="#stack">Стек</a><a href="#architecture">Схема</a><a href="#frontend">Фронтенд</a><a href="#devices">Устройства</a><a href="#guides">Гайды</a><a href="#games">Игры</a><a href="#backend">Бэкенд</a><a href="#hosting">Хостинг</a><a href="#tracking">Трекинг</a><a href="#data">Данные</a><a href="#load">Нагрузка</a><a href="#costs">Стоимость</a><a href="#roadmap">10 дней</a><a href="#claude">Claude Code</a><a href="#decisions">Решить</a>
       </nav>
     </div>
 
@@ -605,7 +626,7 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
       <section id="overview" class="block" style="margin-top:0">
         <div class="hero-grid">
           <div class="hero rv">
-            <span class="tag">Документ v4</span>
+            <span class="tag">Документ v5</span>
             <h2>Веб-платформа турецкого по подписке: пять городов и 310 гайдов</h2>
             <p>План как в Duolingo, но материала больше, чем тестов. Каждый уровень — отдельный город. Каждая тема — гайд со своим дизайном. Дашборд показывает всё: от уровня ученика до секции, на которой он остановился. Только веб: телефон и компьютер в браузере.</p>
             <div class="hero-stats">
@@ -1003,6 +1024,118 @@ footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:v
                 <tr><td>Повторение слов</td><td data-label="Выбор">ts-fsrs</td></tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DEVICES ================= -->
+      <section id="devices" class="block">
+        <div class="eyebrow"><svg class="ic"><use href="#i-devices"/></svg>Устройства</div>
+        <h2>От Android до ультраширокого монитора</h2>
+        <p class="lead">Один код без отдельной мобильной версии. Верстаем сначала под самый узкий Android (360 px), потом добавляем место. Раскладку меняет ширина экрана, а не тип устройства: User-Agent не используем — iPad в Safari представляется как Mac.</p>
+
+        <div class="bp-grid">
+          <div class="card bp rv">
+            <svg viewBox="0 0 160 100" aria-hidden="true"><rect class="wf-bg" width="160" height="100" rx="10"/><rect class="wf-frame" x="60" y="6" width="40" height="88" rx="7"/><rect class="wf-blk" x="64" y="12" width="32" height="5" rx="2"/><rect class="wf-acc2" x="64" y="21" width="32" height="14" rx="3"/><rect class="wf-blk" x="64" y="38" width="32" height="8" rx="2"/><rect class="wf-blk" x="64" y="49" width="32" height="8" rx="2"/><rect class="wf-blk" x="64" y="60" width="32" height="8" rx="2"/><rect class="wf-side" x="62" y="80" width="36" height="11" rx="4"/><circle class="wf-acc" cx="68" cy="85.5" r="2"/><circle class="wf-dot" cx="76" cy="85.5" r="2"/><circle class="wf-dot" cx="84" cy="85.5" r="2"/><circle class="wf-dot" cx="92" cy="85.5" r="2"/></svg>
+            <span class="w">до 767 px</span>
+            <h3>Телефон</h3>
+            <div class="dev">Android, iPhone</div>
+            <p>Одна колонка, нижняя панель из 5 вкладок, гайд во весь экран. Учитываем вырез и полоску «домой».</p>
+          </div>
+          <div class="card bp rv">
+            <svg viewBox="0 0 160 100" aria-hidden="true"><rect class="wf-bg" width="160" height="100" rx="10"/><rect class="wf-frame" x="46" y="4" width="68" height="92" rx="7"/><rect class="wf-side" x="49" y="8" width="8" height="84" rx="3"/><rect class="wf-blk" x="61" y="10" width="34" height="5" rx="2"/><rect class="wf-acc2" x="61" y="19" width="49" height="16" rx="3"/><rect class="wf-blk" x="61" y="39" width="23" height="23" rx="3"/><rect class="wf-blk" x="87" y="39" width="23" height="23" rx="3"/><rect class="wf-blk" x="61" y="65" width="23" height="23" rx="3"/><rect class="wf-blk" x="87" y="65" width="23" height="23" rx="3"/></svg>
+            <span class="w">768–1023 px</span>
+            <h3>Планшет вертикально</h3>
+            <div class="dev">iPad, Android-планшеты</div>
+            <p>Панель иконок слева, карточки в две колонки.</p>
+          </div>
+          <div class="card bp rv">
+            <svg viewBox="0 0 160 100" aria-hidden="true"><rect class="wf-bg" width="160" height="100" rx="10"/><rect class="wf-frame" x="6" y="12" width="148" height="76" rx="6"/><rect class="wf-side" x="10" y="16" width="30" height="68" rx="3"/><rect class="wf-blk" x="46" y="18" width="40" height="5" rx="2"/><rect class="wf-blk" x="46" y="27" width="56" height="55" rx="3"/><rect class="wf-acc2" x="106" y="27" width="44" height="18" rx="3"/><rect class="wf-blk" x="106" y="48" width="44" height="34" rx="3"/></svg>
+            <span class="w">1024–1599 px</span>
+            <h3>Ноутбук и iPad горизонтально</h3>
+            <div class="dev">MacBook, iPad landscape</div>
+            <p>Полный сайдбар, план в две колонки — как на макете.</p>
+          </div>
+          <div class="card bp rv">
+            <svg viewBox="0 0 160 100" aria-hidden="true"><rect class="wf-bg" width="160" height="100" rx="10"/><rect class="wf-frame" x="4" y="16" width="152" height="68" rx="6"/><rect class="wf-side" x="8" y="20" width="24" height="60" rx="3"/><rect class="wf-blk" x="37" y="22" width="34" height="4" rx="2"/><rect class="wf-blk" x="37" y="30" width="46" height="50" rx="3"/><rect class="wf-acc2" x="87" y="30" width="36" height="16" rx="3"/><rect class="wf-blk" x="87" y="49" width="36" height="31" rx="3"/><rect class="wf-rail" x="127" y="20" width="25" height="60" rx="3"/></svg>
+            <span class="w">1600–2559 px</span>
+            <h3>Большой монитор</h3>
+            <div class="dev">Full HD, 2K</div>
+            <p>Справа появляется колонка: цель дня, слова на повторение, стрик.</p>
+          </div>
+          <div class="card bp rv">
+            <svg viewBox="0 0 160 100" aria-hidden="true"><rect class="wf-bg" width="160" height="100" rx="10"/><rect class="wf-frame" x="2" y="24" width="156" height="52" rx="5"/><rect class="wf-margin" x="5" y="27" width="23" height="46" rx="3"/><rect class="wf-margin" x="132" y="27" width="23" height="46" rx="3"/><rect class="wf-side" x="31" y="29" width="14" height="42" rx="2"/><rect class="wf-blk" x="48" y="29" width="30" height="42" rx="2"/><rect class="wf-acc2" x="81" y="29" width="26" height="12" rx="2"/><rect class="wf-blk" x="81" y="44" width="26" height="27" rx="2"/><rect class="wf-rail" x="110" y="29" width="19" height="42" rx="2"/></svg>
+            <span class="w">от 2560 px</span>
+            <h3>Ультраширокий</h3>
+            <div class="dev">3440×1440, 5K</div>
+            <p>Весь интерфейс по центру, не шире 2000 px. Текст не растягивается: строка до 75 знаков.</p>
+          </div>
+        </div>
+
+        <div class="grid2 mt20">
+          <div class="card rv">
+            <h3>Правила вёрстки</h3>
+            <ul class="checks" style="margin-top:14px">
+              <li>Ширины — через <code>max-width</code> и <code>clamp()</code>, фиксированных ширин блоков нет.</li>
+              <li>Компоненты подстраиваются под свой контейнер (<code>@container</code> в Tailwind 4): карточка одинаково хорошо выглядит в сайдбаре и в центре.</li>
+              <li>Высота экрана — <code>dvh</code> вместо <code>vh</code>: адресная строка Safari и Chrome не обрезает контент.</li>
+              <li>Кнопки не меньше 44×44 px; hover — только для мыши: <code>@media (hover: hover)</code>.</li>
+              <li>Шрифт в полях ввода не меньше 16 px — иначе iPhone приближает страницу.</li>
+              <li>Иконки — SVG, картинки — AVIF/WebP с версиями для Retina.</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Гайд на разных экранах</h3>
+            <ul class="checks" style="margin-top:14px">
+              <li>Телефон: во весь экран, верхняя панель 48 px, кнопка «назад» Android закрывает гайд, а не уходит с платформы.</li>
+              <li>Ноутбук и iPad горизонтально: гайд не шире 1100 px по центру.</li>
+              <li>От 1600 px: слева оглавление секций с галочками, справа слова гайда.</li>
+              <li>Медиазапросы гайда смотрят на ширину iframe, поэтому гайд тоже верстается mobile-first.</li>
+              <li>При повороте экрана анимации GSAP пересчитываются; при <code>prefers-reduced-motion</code> показывается итог без анимации.</li>
+              <li><code>content:check</code> снимает каждый гайд на 360, 768, 1280 и 1920 px.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Особенности платформ</h4>
+        <div class="plat">
+          <div class="card rv"><h3>iPhone · Safari</h3><p><code>viewport-fit=cover</code> и <code>env(safe-area-inset-*)</code> для выреза и полоски «домой». Звук — только по нажатию: автозапуск заблокирован.</p></div>
+          <div class="card rv"><h3>Android · Chrome, Samsung</h3><p>Кнопка «назад» закрывает плеер через историю браузера. Проверка на слабом телефоне с замедлением процессора ×4.</p></div>
+          <div class="card rv"><h3>iPad</h3><p>Safari выдаёт себя за Mac, поэтому различаем по <code>(pointer: coarse)</code>. С клавиатурой и трекпадом работают hover и горячие клавиши. Поворот меняет раскладку без перезагрузки.</p></div>
+          <div class="card rv"><h3>MacBook</h3><p>Чёткие SVG и картинки 2x для Retina, hover-состояния, горячие клавиши в упражнениях: 1–4 — выбор, Enter — проверить.</p></div>
+          <div class="card rv"><h3>Ультраширокий монитор</h3><p>Контент и графики не растягиваются на всю ширину. Таблицы админки получают больше колонок, а не шире ячейки.</p></div>
+        </div>
+
+        <h4>Как проверяем</h4>
+        <div class="card tbl-card rv">
+          <table class="tbl lab">
+            <thead><tr><th>Профиль Playwright</th><th>Движок</th><th>Размер</th><th>Что это</th></tr></thead>
+            <tbody>
+              <tr><td>android</td><td data-label="Движок">Chromium, касания</td><td data-label="Размер">360×800</td><td data-label="Что это">Бюджетный Android</td></tr>
+              <tr><td>iphone-se</td><td data-label="Движок">WebKit, касания</td><td data-label="Размер">375×667</td><td data-label="Что это">Маленький iPhone</td></tr>
+              <tr><td>iphone</td><td data-label="Движок">WebKit, касания</td><td data-label="Размер">393×852</td><td data-label="Что это">iPhone 15–17</td></tr>
+              <tr><td>iphone-max</td><td data-label="Движок">WebKit, касания</td><td data-label="Размер">430×932</td><td data-label="Что это">Pro Max</td></tr>
+              <tr><td>ipad</td><td data-label="Движок">WebKit, касания</td><td data-label="Размер">820×1180 и 1180×820</td><td data-label="Что это">iPad в двух ориентациях</td></tr>
+              <tr><td>macbook</td><td data-label="Движок">Chromium, Retina ×2</td><td data-label="Размер">1470×956</td><td data-label="Что это">MacBook Air 13</td></tr>
+              <tr><td>fhd</td><td data-label="Движок">Chromium</td><td data-label="Размер">1920×1080</td><td data-label="Что это">Обычный монитор</td></tr>
+              <tr><td>ultrawide</td><td data-label="Движок">Chromium</td><td data-label="Размер">3440×1440</td><td data-label="Что это">Ультраширокий</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid2 mt20">
+          <div class="card rv">
+            <h3>На каждом профиле</h3>
+            <ul class="checks dots" style="margin-top:12px">
+              <li>нет горизонтального скролла</li>
+              <li>ничего не уходит под нижнюю панель и вырез</li>
+              <li>главные кнопки видны и нажимаются</li>
+              <li>скриншоты «Плана», плеера, дашборда и тарифов совпадают с эталоном</li>
+              <li>Lighthouse mobile на «Плане» и в плеере — не ниже 85</li>
+            </ul>
+          </div>
+          <div class="note amber rv" style="align-self:start">
+            <svg class="ic"><use href="#i-alert"/></svg>
+            <p><b>Поддерживаемые браузеры.</b> Safari 16.4+ (iPhone 8 и новее), Chrome 111+, Firefox 128+, Samsung Internet, Edge — это требование Tailwind CSS 4. На iPhone 7 и старше (iOS 15) показываем плашку «Обновите браузер». Перед запуском главный сценарий проходится руками на дешёвом Android, iPhone, iPad и MacBook.</p>
           </div>
         </div>
       </section>
@@ -1622,7 +1755,7 @@ game.complete({ correct: <span class="t">18</span>, total: <span class="t">20</s
             <ul class="checks">
               <li>Next.js 16 + Tailwind 4 + shadcn/ui, Supabase локально и в облаке</li>
               <li>Вход: email и Google; профили, роли в JWT, RLS</li>
-              <li>Каркас по макету; лендинг с ценами, офертой, политикой, возвратами</li>
+              <li>Каркас по макету в 5 раскладках — от телефона до ультраширокого; лендинг с ценами, офертой, политикой, возвратами</li>
               <li>Деплой на Vercel (fra1), Sentry, PostHog</li>
             </ul>
             <div class="done"><b>Готово, когда:</b> лендинг и вход работают на твоём домене, <code>/admin</code> закрыт для обычного пользователя.</div>
@@ -1649,7 +1782,7 @@ game.complete({ correct: <span class="t">18</span>, total: <span class="t">20</s
           <article class="card day rv" id="d4">
             <div class="day-top"><span class="day-n"><small>ДЕНЬ</small>4</span><div><h3>Плеер и трекинг</h3><div class="mdl"><span class="chip c-blue">Sonnet</span><span class="chip c-violet">Opus · ревью</span></div></div></div>
             <ul class="checks">
-              <li>Полноэкранный плеер, прогресс секций, «Продолжить»</li>
+              <li>Плеер: во весь экран на телефоне, с оглавлением на широком экране; «Продолжить»</li>
               <li><code>/api/track</code>: батчи, без дублей, партиции</li>
               <li>Урок пройден → XP → стрик → следующий урок, одной транзакцией</li>
             </ul>
@@ -1695,7 +1828,7 @@ game.complete({ correct: <span class="t">18</span>, total: <span class="t">20</s
           <article class="card day rv" id="d9">
             <div class="day-top"><span class="day-n"><small>ДЕНЬ</small>9</span><div><h3>Качество и безопасность</h3><div class="mdl"><span class="chip c-red">Opus · max</span></div></div></div>
             <ul class="checks">
-              <li>Playwright: регистрация → пробный → гайд → оплата → Измир, на 375 px</li>
+              <li>Playwright на 9 профилях: Android, iPhone, iPad, MacBook, 1920, 3440 — регистрация → пробный → гайд → оплата → Измир</li>
               <li>Тесты RLS: чужое не видно, пробный не откроет закрытый гайд</li>
               <li>k6: 1 000 учеников шлют события, 95% ответов быстрее 300 мс</li>
               <li><code>/code-review</code> и <code>/security-review</code> по всему проекту</li>
@@ -1844,8 +1977,8 @@ game.complete({ correct: <span class="t">18</span>, total: <span class="t">20</s
       </section>
 
       <footer>
-        <span>Alterna · документ архитектуры v4</span>
-        <span>9 октября 2026</span>
+        <span>Alterna · документ архитектуры v5</span>
+        <span>15 октября 2026</span>
       </footer>
 
     </div>
