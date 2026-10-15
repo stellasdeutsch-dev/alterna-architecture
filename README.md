@@ -7,5 +7,5 @@
 Для Claude Code:
 - [claude-code/CLAUDE.md](claude-code/CLAUDE.md) — правила проекта
 - [claude-code/PLAN.md](claude-code/PLAN.md) — промпты на 10 дней
-- [claude-code/prompts/00-guides-workshop.md](claude-code/prompts/00-guides-workshop.md) — мастерская гайдов (один раз)
-- [claude-code/prompts/a1-grammar-guide.md](claude-code/prompts/a1-grammar-guide.md) — промпт на гайд A1
+
+Актуальные правила, инструкция гайдов и стартовый промпт для чатов с гайдами живут в рабочем репозитории `stellasdeutsch-dev/alterna` (приватный): `CLAUDE.md`, `docs/guides/START-PROMPT.md`, `docs/guides/SPEC.md`, `docs/guides/CRAFT.md`. Файлы в этой папке — первая версия.
